@@ -23,7 +23,7 @@ def analyze_code(code: str):
     mi_score = mi_visit(code, True)
 
     return {
-        "halstead_volume": sum(h.total.volume for h in halstead),
+        "halstead_volume": sum(h for h in halstead.total),
         "cyclomatic_complexity": sum(c.complexity for c in complexity),
         "loc": code.count("\n") + 1,
         "maintainability_index": mi_score
@@ -31,3 +31,4 @@ def analyze_code(code: str):
 
 if __name__ == "__main__":
     app.run(transport="http")
+
